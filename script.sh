@@ -4,7 +4,8 @@ FOLDER=videos_$CUR_TIME
 
 echo Storing output in $FOLDER
 mkdir $FOLDER
+cd $FOLDER
 
 while IFS= read -r line; do
-  youtube-dl -f 'bestvideo[height<=240]+bestaudio[ext=m4a]/best[height<=240]/best' --restrict-filename $line
-done < $INPUT_FILE
+  youtube-dl -f 'bestvideo[height<=240][ext=mp4]/worstvideo[ext=mp4]' --restrict-filename $line
+done < ../$INPUT_FILE
